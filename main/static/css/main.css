@@ -1,0 +1,242 @@
+@font-face {
+	font-family: 'open sans';
+	font-weight: 400;
+	font-style: normal
+}
+
+.left {
+	border-right: 1px solid grey;
+	border: 0;
+	color: #aaa;
+	float: left;
+	max-width: 400px;
+	padding-left: 0;
+	text-align: center;
+	width: 400px
+}
+
+.submit {
+	font: 16px"open sans", sans-serif;
+	display: inline-block;
+	background: #e74c3c;
+	border: 1px solid #e74c3c;
+	color: #fff;
+	border-radius: 5px;
+	width: 120px;
+	height: 30px;
+	cursor: pointer;
+	margin-top: 5px
+}
+
+.submit:hover {
+	box-shadow: 0 7px 23px -6px rgba(0, 0, 0, 1)
+}
+.titre{
+	position: absolute;
+	left: 50%;
+	top: 25%;
+	transform: translate(-50%, -50%);
+	 text-align:center;
+}
+
+.vert {
+	color: #2ecc71
+}
+
+.rouge {
+	color: #e74c3c
+}
+
+.titre {
+	font: 34px"architects daughter", arial, heveltica, sans-serif;
+	display: inline-block;
+	margin-top: 35px
+}
+
+.or {
+	position: absolute;
+	left: 50%;
+	top: 75%;
+	transform: translate(-50%, -50%);
+	text-align:center;
+}
+
+.or input{
+    padding: 7px 50px;
+    border: 1px solid #87CEFA;
+    border-radius: 30px;
+    color:#808080;
+}
+
+.button {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 15%;
+	height: 8%;
+	transform: translate(-50%, -50%);
+	text-align:center;
+}
+
+/*left side*/
+.file_name {
+	position: absolute;
+	left: 30%;
+	top: 55%;
+	transform: translate(-50%, -50%);
+	text-align:center;
+}
+
+/*right side*/
+.file_size {
+	position: absolute;
+	left: 70%;
+	top: 55%;
+	transform: translate(-50%, -50%);
+	text-align:center;
+}
+
+.file_hash {
+	position: absolute;
+	left: 50%;
+	top: 65%;
+	transform: translate(-50%, -50%);
+	text-align:center;
+}
+
+.file_date {
+	position: absolute;
+	left: 50%;
+	top: 80%;
+	transform: translate(-50%, -50%);
+	text-align:center;
+}
+
+body {
+	background: #eee;
+	height: 100%;
+	margin: 0
+}
+
+h3 {
+	font: 19px"open sans", sans-serif
+}
+
+#button {
+	display: inline-block;
+	margin-left: 50px;
+	border-radius: 10px;
+	width: 220px;
+	height: 63px
+}
+input[type="file"]:focus {
+	outline: 0;
+  }
+  
+input[type="file"] {
+	color: transparent;
+	width: 64px;
+	height: 64px;
+	cursor: pointer;
+	position: absolute;
+	left: 50%;
+	top: 45%;
+	transform: translate(-50%, -50%);
+	text-align:center;
+}
+  
+input[type="file"]::-webkit-file-upload-button {
+	visibility: hidden;
+}
+  
+input[type="file"]::before {
+	content: '';
+	display: inline-block;
+	background: url(https://cdn1.iconfinder.com/data/icons/hawcons/32/698931-icon-98-folder-upload-64.png);
+	width: 64px;
+	height: 64px;
+}
+header{
+    background-color: rgb(51,51,51);
+	box-shadow: 1px 1px 12px #555;
+	height: 30px;
+	top: 00px;
+}
+.navigation a{
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding-left: 15px;
+	justify-content: space-between;
+}
+
+.navigation button{
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding-left: 15px;
+	justify-content: space-between;
+}
+
+.navigation span{
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding-left: 15px;
+	justify-content: space-between;
+}
+
+
+.navigation a:hover{
+    color: #ffffff;
+    padding: 6px 15px;
+    border-radius: 20px;
+    background-color: #141414;
+    padding: 10px 0px;
+    color: #ffffff;
+    padding: 6px 15px;
+    border-radius: 20px;
+    background-color: rgb(0, 0, 0);
+    transform: scale(1.1);
+    margin-bottom: 40px;
+    transition: 0.5s ease;
+    box-shadow: 0 -2px 15px rgb(255, 255, 255);
+}
+
+.navigation button:hover{
+    color: #ffffff;
+    padding: 6px 15px;
+    border-radius: 20px;
+    background-color: #141414;
+    padding: 10px 0px;
+    color: #ffffff;
+    padding: 6px 15px;
+    border-radius: 20px;
+    background-color: rgb(0, 0, 0);
+    transform: scale(1.1);
+    margin-bottom: 40px;
+    transition: 0.5s ease;
+    box-shadow: 0 -2px 15px rgb(255, 255, 255);
+}
+.suki{
+	position:relative;
+	left:8px;
+	top:640px;
+}
+
+.table {
+	position: absolute;
+	left: 50%;
+	top: 58%;
+	transform: translate(-50%, -50%);
+	text-align:center;
+}
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+

@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <meta name="viewport" content="width=device-width">
+      <title>Your Library</title>
+    </head>
+    <body>
+      <header>
+         <nav class="navigation">
+            <span>| {{session}} |</span>
+            <a href="/">Home</a>
+            {% if user.is_authenticated %}
+            <a href="/library">My Uploads</a>
+            <a href="/logout">Sign-out</a>
+            {% else %}
+            <a href="/login">Login</a>
+            <a href="/signup">Sign-Up</a>
+            {% endif %}
+         </nav>
+      </header>
+      <div class="table">
+          {% if files %}
+              <h2>Your Uploads :</h2>
+              <hr>
+              <table border="1" cellspacing="0" cellpadding="10">
+              <tr>
+                  <th>File Name</th>
+                  <th>Size</th>
+                  <th>Creation Date</th>
+                  <th>Delete ?</th>
+              </tr>
+              {% for file in files %}
+                  <form name="passdata" method="post">
+                      {% csrf_token %}
+                      <tr>
+                          <td><a href="/download/{{file.file_code}}">{{file.name}}</a></td>
+                          <td>{{file.file.size|filesizeformat}}</td>
+                          <td>{{file.date}}</td>
+                          <td>
+                            <button name='delete' type="submit" value="{{file.file_code}}">Delete</button>
+                          </td>
+                      </tr>
+                  </form>
+          {% endfor %}
+          <hr>
+          {% else %}
+              <h3>No Files to show.</h3>
+          {% endif %}
+          </table>
+      </div>
+   <div class="suki">
+         Powered by <a href="https://github.com/Yosoevsky" target="_blank">JospehÜbermensch</a>
+      </div>
+   </body>
+<script>
+   document.body.style.zoom = "90%";
+</script>
+</html>

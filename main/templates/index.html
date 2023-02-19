@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <meta name="viewport" content="width=device-width">
+      <title>UpSuki. simple, Secure</title>
+    </head>
+    <body>
+      <header>
+         <nav class="navigation">
+            <span>| {{session}} |</span>
+            <a href="/">Home</a>
+            {% if user.is_authenticated %}
+            <a href="/library">My Uploads</a>
+            <a href="/signout">Sign-out</a>
+            {% else %}
+            <a href="#">Login</a>
+            <a href="#">Sign-Up</a>
+            {% endif %}
+         </nav>
+      </header>
+      <h1 class="titre"><strong><big><span class="vert">Up</span><span class="rouge">Suki</span></big></strong></h1>
+      <!-- button -->
+      <form id="upload-form" action="{% url 'home' %}" method="post" enctype="multipart/form-data">
+         {% csrf_token %}
+         <label for="file"></label>
+         <input class="txt" id="file" type=file name=file>
+         <div id="progress-bar" style="height: 10px; width: 0%; background-color: green;"></div>
+         <br>
+      </form>
+      <!-- button -->
+      <div class="or">
+         <hr style="width:100%;color:gray;background-color:gray">
+         <h1>Or</h1>
+         <form name="passdata" method="post">
+            {% csrf_token %}
+            <input type="search" name="hash" size="64" placeholder="Search your file by its SHA-256 hash"/>
+         </form>
+         {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+               <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+            </ul>
+         {% endif %}
+      </div>
+   <div class="suki">
+         Powered by <a href="https://github.com/Yosoevsky" target="_blank">JospehÜbermensch</a>
+      </div>
+   </body>
+
+<script>
+document.body.style.zoom = "90%";
+$(document).ready(function() {
+  $("#file").change(function() {
+    var formData = new FormData($("#upload-form")[0]);
+    $.ajax({
+      url: "{% url 'home' %}",
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      xhr: function() {
+        var xhr = new XMLHttpRequest();
+        xhr.upload.addEventListener("progress", function(e) {
+          var percent = (e.loaded / e.total) * 100;
+          $("#progress-bar").width(percent + "%");
+        });
+        return xhr;
+      },
+      success: function(data) {
+        console.log("Upload successful!");
+        if (data.redirect_url) {
+          window.location.href = data.redirect_url;
+        }
+      }
+    });
+  });
+});
+</script>
+</html>
